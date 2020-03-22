@@ -24,7 +24,7 @@
                 int count = 0;
                 for (int j = 0; j < sentence.length; j++) {
                     NSString *character = [sentence substringWithRange:NSMakeRange(j, 1)];
-                    if ([vowels containsObject:character]) {
+                    if ([vowels containsObject:character]) { // TODO: convert to Block
                         count++;
                         [sentence replaceCharactersInRange:NSMakeRange(j, 1) withString:[character uppercaseString]];
                     }
@@ -41,7 +41,7 @@
                 int count = 0;
                 for (int j = 0; j < sentence.length; j++) {
                     NSString *character = [sentence substringWithRange:NSMakeRange(j, 1)];
-                    if ([consonants containsObject:character]) {
+                    if ([consonants containsObject:character]) { // TODO: convert to Block
                         count++;
                         [sentence replaceCharactersInRange:NSMakeRange(j, 1) withString:[character uppercaseString]];
                     }

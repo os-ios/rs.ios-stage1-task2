@@ -9,7 +9,7 @@
         a = b;
         b = c;
         if (a * b >= number.intValue) {
-            return @[@(a), @(b), a * b == number.intValue ? @1 : @0];
+            return @[@(a), @(b), @(a * b == number.intValue)];
         }
     }
 

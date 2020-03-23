@@ -15,10 +15,10 @@
         }
     }
 
-    NSArray<NSString *> *sentences = [[self stringByReplacingOccurrencesOfString:@"\n" withString:@""] componentsSeparatedByString:@" "];
+    NSArray<NSString *> *words = [[self stringByReplacingOccurrencesOfString:@"\n" withString:@""] componentsSeparatedByString:@" "];
     if (pangram) {
-        for (int i = 0; i < sentences.count; i++) {
-            NSMutableString *sentence = [sentences[i] mutableCopy];
+        for (int i = 0; i < words.count; i++) {
+            NSMutableString *sentence = [words[i] mutableCopy];
 
             if (sentence.length != 0) {
                 int count = 0;
@@ -34,20 +34,20 @@
             }
         }
     } else {
-        for (int i = 0; i < sentences.count; i++) {
-            NSMutableString *sentence = [sentences[i] mutableCopy];
+        for (int i = 0; i < words.count; i++) {
+            NSMutableString *word = [words[i] mutableCopy];
 
-            if (sentence.length != 0) {
+            if (word.length != 0) {
                 int count = 0;
-                for (int j = 0; j < sentence.length; j++) {
-                    NSString *character = [sentence substringWithRange:NSMakeRange(j, 1)];
+                for (int j = 0; j < word.length; j++) {
+                    NSString *character = [word substringWithRange:NSMakeRange(j, 1)];
                     if ([consonants containsObject:character]) { // TODO: convert to Block
                         count++;
-                        [sentence replaceCharactersInRange:NSMakeRange(j, 1) withString:[character uppercaseString]];
+                        [word replaceCharactersInRange:NSMakeRange(j, 1) withString:[character uppercaseString]];
                     }
                 }
 
-                [result addObject:[NSString stringWithFormat:@"%d%@", count, sentence]];
+                [result addObject:[NSString stringWithFormat:@"%d%@", count, word]];
             }
         }
     }

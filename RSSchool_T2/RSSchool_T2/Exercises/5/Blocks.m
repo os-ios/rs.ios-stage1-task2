@@ -35,7 +35,7 @@
         }
 
         if (clazz == [NSDate class]) {
-            NSDate *laterDate = [NSDate new];
+            NSDate *laterDate = [NSDate dateWithTimeIntervalSince1970:0];
             for (NSObject *obj in arr) {
                 if ([obj isKindOfClass:[NSDate class]]) {
                     NSDate *tmpDate = obj;

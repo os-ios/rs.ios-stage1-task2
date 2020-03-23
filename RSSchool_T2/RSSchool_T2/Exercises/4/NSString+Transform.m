@@ -33,6 +33,8 @@
 
             [result addObject:[NSString stringWithFormat:@"%d%@", count, word]];
         }
+
+        [word release];
     }
 
     NSArray *array = [result sortedArrayUsingComparator:^(NSString *word1, NSString *word2) {
@@ -49,7 +51,7 @@
         [resultString appendString:array[i]];
     }
 
-    return resultString;
+    return [resultString autorelease];
 }
 
 @end

@@ -47,6 +47,7 @@
             NSDateFormatter *dateFormatter = [NSDateFormatter new];
             dateFormatter.dateFormat = @"dd.MM.yyyy";
             weakSelf.blockC([dateFormatter stringFromDate:laterDate]);
+            [dateFormatter release];
         }
 
 
@@ -54,6 +55,13 @@
     };
 
     return self;
+}
+
+- (void) dealloc {
+    [_blockA release];
+    [_blockB release];
+    [_blockC release];
+    [super dealloc];
 }
 
 @end
